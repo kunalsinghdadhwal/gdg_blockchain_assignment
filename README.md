@@ -8,7 +8,7 @@ Registration Number: 25BCE5209
 Name: Mohammed Mubashir Hasan
 
 
-Output as requested in the assignment:
+## Output as requested in the assignment:
 
 <img width="841" height="268" alt="assignmentConsole" src="https://github.com/user-attachments/assets/41ddbec3-0e8d-42b1-a668-a1486214a35a" />
 
@@ -17,6 +17,7 @@ Output as requested in the assignment:
 <img width="1334" height="316" alt="image" src="https://github.com/user-attachments/assets/5e547346-f597-4f5c-ac9a-7a21db860178" />
 
 <img width="662" height="182" alt="assignmentSeploiaMessage" src="https://github.com/user-attachments/assets/092038c8-e583-451a-a540-65ae592cb65b" />
+
 <img width="915" height="423" alt="done" src="https://github.com/user-attachments/assets/556c1862-398c-4a70-8f74-02a76f72c44a" />
 
 ## Working
