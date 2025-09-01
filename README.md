@@ -1,11 +1,14 @@
 # GDG Personal Locker Assignment
 
-This project contains a Solidity smart contract called "PersonalLocker" and the necessary scripts to deploy and interact with it using Hardhat.
+This project contains a Solidity smart contract called "PersonalLocker" and the scripts required to deploy and interact with it using Hardhat.
 
 Student Information
 Registration Number: 25BCE5209
 
 Name: Mohammed Mubashir Hasan
+
+
+Output as requested in the assignment:
 
 <img width="841" height="268" alt="assignmentConsole" src="https://github.com/user-attachments/assets/41ddbec3-0e8d-42b1-a668-a1486214a35a" />
 
