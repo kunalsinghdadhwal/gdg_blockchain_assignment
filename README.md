@@ -8,6 +8,7 @@ Registration Number: 25BCE5209
 
 Name: Mohammed Mubashir Hasan
 
+PersonalLocker deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3 (localhost)
 
 <img width="641" height="121" alt="assignmentMessage" src="https://github.com/user-attachments/assets/93ac6371-b245-462b-9ceb-c9d51c9bb670" />
 
