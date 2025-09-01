@@ -1,7 +1,27 @@
 {
-  "name": "hardhat-project",
+  "name": "personal-locker",
+  "version": "1.0.0",
+  "description": "GDG Blockchain Assignment - PersonalLocker Smart Contract",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "update:local": "hardhat run scripts/update.js --network localhost",
+    "update:sepolia": "hardhat run scripts/update.js --network sepolia",
+    "verify:local": "hardhat run scripts/verify.js --network localhost",
+    "verify:sepolia": "hardhat run scripts/verify.js --network sepolia"
+  },
+  "keywords": ["blockchain", "solidity", "smart-contract", "hardhat"],
+  "author": "Utsav Gautam",
+  "license": "MIT",
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
-    "hardhat": "^2.26.3"
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
   }
 }
