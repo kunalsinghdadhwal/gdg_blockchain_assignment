@@ -31,6 +31,6 @@ To update the secret message, the owner must call this function and provide the 
 
 ## Challenges Faced
 
-The primary challenge was correctly configuring the Hardhat environment, especially the .env and hardhat.config.js files, to connect to the Sepolia testnet. Initial attempts with public RPC URLs (lol i shouldn't be doing this but i'm naming it: chainlist) led to "Too Many Requests" errors, which required switching to a dedicated provider like Infura for a stable connection.
+The primary challenge was correctly configuring the Hardhat environment, especially the .env and hardhat.config.js files, to connect to the Sepolia testnet. Initial attempts with public RPC URLs (lol i shouldn't be doing this but i'm naming it: chainlist) led to "Too Many Requests" errors, which required switching to a dedicated provider  Infura for a stable connection.
 
 Another challenge involved carefully updating the update.js script with the correct deployed contract address for each network. Finally, the network congestion on Sepolia caused transaction delays, took a lot of time waiting for confirmations to appear on the blockchain.
