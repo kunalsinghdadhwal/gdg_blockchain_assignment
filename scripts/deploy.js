@@ -16,6 +16,7 @@ async function main() {
 
   console.log(`PersonalLocker deployed to: ${personalLocker.target}`);
   console.log(`Initial message: "${initialMessage}"`);
+  console.log("Deployment details logged. Keep the contract address and your password secure.")
 }
 
 main().catch((error) => {
