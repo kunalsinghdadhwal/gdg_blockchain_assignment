@@ -1,34 +1,53 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 
 // Uncomment this line to use console.log
-// import "hardhat/console.sol";
+import "hardhat/console.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Lock {
-    uint public unlockTime;
-    address payable public owner;
+contract Lock is Ownable {
+    string public message;
+    string private password;
+    uint public block_contract;
 
-    event Withdrawal(uint amount, uint when);
+    error WRONG_PASSORD();
 
-    constructor(uint _unlockTime) payable {
-        require(
-            block.timestamp < _unlockTime,
-            "Unlock time should be in the future"
-        );
+    event MessageUpdated(string oldMsg, string newMsg);
 
-        unlockTime = _unlockTime;
-        owner = payable(msg.sender);
+    constructor(
+        string memory _message,
+        string memory _password
+    ) payable Ownable(msg.sender) {
+        message = _message;
+        password = _password;
+
+        block_contract = block.number;
     }
 
-    function withdraw() public {
-        // Uncomment this line, and the import of "hardhat/console.sol", to print a log in your terminal
-        // console.log("Unlock time is %o and block timestamp is %o", unlockTime, block.timestamp);
-
-        require(block.timestamp >= unlockTime, "You can't withdraw yet");
-        require(msg.sender == owner, "You aren't the owner");
-
-        emit Withdrawal(address(this).balance, block.timestamp);
-
-        owner.transfer(address(this).balance);
+    function updateMessage(
+        string memory _newMsg,
+        string memory _password
+    ) public onlyOwner {
+        if (
+            keccak256(abi.encodePacked(password)) !=
+            keccak256(abi.encodePacked(_password))
+        ) {
+            revert WRONG_PASSORD();
+        }
+        string memory oldMsg = message;
+        message = _newMsg;
+        emit MessageUpdated(oldMsg, _newMsg);
     }
+
+    function readMsg() public view returns (string memory) {
+        return message;
+    }
+
+    function showPsw() public view onlyOwner returns (string memory) {
+        return password;
+    }
+
+    receive() external payable {}
+
+    fallback() external payable {}
 }
