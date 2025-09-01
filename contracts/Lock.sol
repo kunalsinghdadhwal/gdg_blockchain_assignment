@@ -1,34 +1,46 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.28;
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity >=0.8.0;
 
-// Uncomment this line to use console.log
-// import "hardhat/console.sol";
+contract PersonalLocker {
+    address public owner;
+    string public secretMessage;
+    string private secretPassword;
+    string public block_contr;
 
-contract Lock {
-    uint public unlockTime;
-    address payable public owner;
+    event MessageUpdated(string oldMessage, string newMessage);
 
-    event Withdrawal(uint amount, uint when);
-
-    constructor(uint _unlockTime) payable {
-        require(
-            block.timestamp < _unlockTime,
-            "Unlock time should be in the future"
-        );
-
-        unlockTime = _unlockTime;
-        owner = payable(msg.sender);
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only the owner can call this function.");
+        _;
     }
 
-    function withdraw() public {
-        // Uncomment this line, and the import of "hardhat/console.sol", to print a log in your terminal
-        // console.log("Unlock time is %o and block timestamp is %o", unlockTime, block.timestamp);
+    constructor(string memory initialMessage, string memory password) {
+        owner = msg.sender;
+        secretMessage = initialMessage;
+        secretPassword = password;
+        block_contr = "Block Contract";
+    }
 
-        require(block.timestamp >= unlockTime, "You can't withdraw yet");
-        require(msg.sender == owner, "You aren't the owner");
+    function updateMessage(string memory newPassword, string memory newMessage) public onlyOwner {
+        require(keccak256(abi.encodePacked(secretPassword)) == keccak256(abi.encodePacked(newPassword)), "Invalid password.");
+        string memory oldMessage = secretMessage;
+        secretMessage = newMessage;
+        emit MessageUpdated(oldMessage, newMessage);
+    }
 
-        emit Withdrawal(address(this).balance, block.timestamp);
+    function getMessage() public view returns (string memory) {
+        return secretMessage;
+    }
 
-        owner.transfer(address(this).balance);
+    function getPassword() public view onlyOwner returns (string memory) {
+        return secretPassword;
+    }
+
+    receive() external payable {
+        // Fallback for receiving Ether
+    }
+
+    fallback() external payable {
+        // Fallback for any other transaction
     }
 }
