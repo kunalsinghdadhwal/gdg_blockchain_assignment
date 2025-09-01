@@ -42,8 +42,8 @@
 
 ## 📌 Transactions
 
-- **Localhost Deployment Tx Hash:** (local doesn’t give real hash, only console logs shown below)
-- **Localhost Update Tx Hash:** (same as above, console logs below)
+- **Localhost Deployment Tx Hash:** (local doesn’t give real hash, only console tx Hash shown : 0xa51edb8e72663f642110ac802ff7167d80b0774d6a164463f679ae4c2d3812ed)
+- **Localhost Update Tx Hash:** ( tx hash : 0xa6f5a247691fedcaf1e3b9f0a56f9f5b77352b05e0875329e8b9fb9ce85dc9ce)
 - **Sepolia Deployment Tx Hash:** https://sepolia.etherscan.io/tx/0xdd41c9318a4af0af6617d4446812806e9e22a645b7a3c3be720007be9298bde8
 - **Sepolia Update Tx Hash:** https://sepolia.etherscan.io/tx/0x0e945dd8f42e9d15330b7058076614808ce336ddd2d9837e9e46af757da55456
 
