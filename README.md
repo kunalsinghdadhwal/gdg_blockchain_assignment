@@ -47,7 +47,7 @@ During development, I encountered several learning challenges including understa
 ### 5. Deploying in Sepolia Testnet
 ![Sepolia Deployment - Step 1](/Images/image-3.png)
 ![Sepolia Deployment - Step 2](/Images/image-2.png)
-![Final Deployment](/Images/image.png)
+![Final Deployment](/Images/image6.png)
 
 ## Deployment Details
 
