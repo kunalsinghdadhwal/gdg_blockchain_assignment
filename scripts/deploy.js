@@ -4,7 +4,10 @@ const { ethers } = require("hardhat");
 async function main() {
   const ProtectedMessage = await ethers.getContractFactory("ProtectedMessage");
 
-  const contract = await ProtectedMessage.deploy("Intial Message", "secret123");
+  const contract = await ProtectedMessage.deploy(
+    "Intial Message",
+    process.env.SECRET
+  );
 
   await contract.waitForDeployment();
 

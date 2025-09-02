@@ -1,6 +1,6 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
-
+require("dotenv").config();
 describe("ProtectedMessage", function () {
   let ProtectedMessage, contract, owner, other;
 
@@ -8,8 +8,11 @@ describe("ProtectedMessage", function () {
     [owner, other] = await ethers.getSigners();
 
     ProtectedMessage = await ethers.getContractFactory("ProtectedMessage");
-    contract = await ProtectedMessage.deploy("Hello Hardhat!", "secret123");
-    await contract.waitForDeployment(); 
+    contract = await ProtectedMessage.deploy(
+      "Hello Hardhat!",
+      process.env.SECRET
+    );
+    await contract.waitForDeployment();
   });
 
   it("Should set the owner correctly", async function () {
@@ -21,7 +24,7 @@ describe("ProtectedMessage", function () {
   });
 
   it("Owner can update message with correct password", async function () {
-    const tx = await contract.updateMessage("New Message", "secret123");
+    const tx = await contract.updateMessage("New Message", process.env.SECRET);
     await tx.wait();
     expect(await contract.readMessage()).to.equal("New Message");
   });
@@ -34,12 +37,12 @@ describe("ProtectedMessage", function () {
 
   it("Should revert if non-owner tries to update", async function () {
     await expect(
-      contract.connect(other).updateMessage("Hack Attempt", "secret123")
+      contract.connect(other).updateMessage("Hack Attempt", process.env.SECRET)
     ).to.be.revertedWith("not owner");
   });
 
   it("Should emit MessageUpdated event on update", async function () {
-    await expect(contract.updateMessage("Updated!", "secret123"))
+    await expect(contract.updateMessage("Updated!", process.env.SECRET))
       .to.emit(contract, "MessageUpdated")
       .withArgs("Hello Hardhat!", "Updated!");
   });
