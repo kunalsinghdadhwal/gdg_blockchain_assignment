@@ -14,7 +14,7 @@ async function main() {
 
   console.log(" Updating message...");
   const tx = await contract.updateMessage(
-    "New Updated Message",
+    "Assignment Completed",
     process.env.SECRET
   );
   await tx.wait();
