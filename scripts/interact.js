@@ -1,19 +1,26 @@
+require("dotenv").config();
 const hre = require("hardhat");
 
 async function main() {
-  const contractAddress = ""; 
-  const Message = await hre.ethers.getContractFactory("Message");
-  const message = await Message.attach(contractAddress);
+  const contractAddress = "";
 
-  // Read current message
-  console.log("Current message:", await message.readMessage());
+  const ProtectedMessage = await hre.ethers.getContractFactory(
+    "ProtectedMessage"
+  );
+  const contract = ProtectedMessage.attach(contractAddress);
 
-  // Update message
-  const tx = await message.updateMessage("Updated via script!");
+  const current = await contract.readMessage();
+  console.log("Current Message:", current);
+
+  console.log(" Updating message...");
+  const tx = await contract.updateMessage(
+    "New Updated Message",
+    process.env.SECRET
+  );
   await tx.wait();
 
-  // Read again
-  console.log("New message:", await message.readMessage());
+  const updated = await contract.readMessage();
+  console.log("Updated Message:", updated);
 }
 
 main().catch((error) => {
