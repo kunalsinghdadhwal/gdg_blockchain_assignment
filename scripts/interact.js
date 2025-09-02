@@ -2,7 +2,7 @@ require("dotenv").config();
 const hre = require("hardhat");
 
 async function main() {
-  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  const contractAddress = "0x81BE25bdFaAA03776FfF149a92b6B1E8c663e832";
 
   const ProtectedMessage = await hre.ethers.getContractFactory(
     "ProtectedMessage"
