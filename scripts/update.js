@@ -15,7 +15,7 @@ async function main() {
     const secretPassword = process.env.SECRET_PASSWORD;
 
     // Update the message
-    const tx = await locker.updateMessage("Assignment Completed - Sep 2025 - Night 21 30", secretPassword);
+    const tx = await locker.updateMessage("Assignment Completed", secretPassword);
     const receipt = await tx.wait();
     console.log("Status:", receipt.status); 
     console.log("✅ Message updated");
@@ -29,3 +29,4 @@ main().catch((error) => {
     console.error(error);
     process.exitCode = 1;
 });
+
