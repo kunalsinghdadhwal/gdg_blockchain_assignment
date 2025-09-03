@@ -3,5 +3,14 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^6.1.0",
     "hardhat": "^2.26.3"
+  },
+  "scripts": {
+    "test": "npx hardhat test",
+    "node": "npx hardhat node",
+    "deploy": "npx hardhat run scripts/deploy.js --network localhost",
+    "update": "npx hardhat run scripts/update.js --network localhost"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2"
   }
 }
