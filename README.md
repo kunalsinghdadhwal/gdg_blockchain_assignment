@@ -33,6 +33,11 @@ For running the contract in Sepolia Testnet there are three things required
 2. For getting ETH, used https://cloud.google.com/application/web3/faucet/ethereum/sepolia and provided the ETH Wallet address which is got from Metamask
 3. The Metamask pprivate key is stored in .env
 
+**Commands to run in Sepolia**
+Its the same set of commands which is run in local expect that the **--network localhost** is replaced with sepolia **--network sepolia**
+1. npx hardhat run scripts/deploy.js **--network sepolia** 
+2. npx hardhat run scripts/update.js **--network sepolia** 
+
 **Screenshot 1 - deploy.js execution - LOCAL**
 <img width="959" height="472" alt="image" src="https://github.com/user-attachments/assets/3f6afb46-2803-4247-8fc7-d3e9692827b8" />
 
