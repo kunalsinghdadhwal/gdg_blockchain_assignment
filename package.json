@@ -2,6 +2,30 @@
   "name": "hardhat-project",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "ethers": "^6.15.0",
     "hardhat": "^2.26.3"
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "hardhat.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scalicious/gdg_blockchain_assignment-personal-vitc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scalicious/gdg_blockchain_assignment-personal-vitc/issues"
+  },
+  "homepage": "https://github.com/scalicious/gdg_blockchain_assignment-personal-vitc#readme",
+  "dependencies": {
+    "dotenv": "^17.2.1"
   }
 }
