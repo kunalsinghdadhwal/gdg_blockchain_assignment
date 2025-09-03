@@ -1,3 +1,6 @@
+Name:Dhruv Yas Raj
+Registration No.: 25BCE1551
+
 Simple Solidity Contract:
 
 Working:
